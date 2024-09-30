@@ -1,0 +1,2 @@
+INSERT INTO cars(id, year, name, description, price, image_Url) VALUES
+(1, 2024, 'Range Rover SV', 'The 2019 Toyota Camry is a compelling entry in the family-sedan class, one that can compete on more than its reputation for flawless reliability and great resale value.', '$600/Day','https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197220/pngimg.com_-_land_rover_PNG18_sgmvpn.png');
