@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from './Navbar'
 
 const Fleet = () => {
   const [mydata, setMydata] = useState([]);
@@ -21,9 +22,11 @@ const Fleet = () => {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div className="pb-24 pt-12 bg-white dark:bg-black dark:text-white">
       <div className="container">
-        <h1 className="text-3xl sm:text-4xl font-bold font-serif">Our Luxury Fleet</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold audiowide-regular">Our Luxury Fleet</h1>
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
             {mydata.map((data) => {
@@ -40,8 +43,8 @@ const Fleet = () => {
                     />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">{data.name}</h2>
-                    <p className="text-lg">{data.price}</p>
+                    <h2 className="text-xl font-bold audiowide-regular">{data.name}</h2>
+                    <p className="text-lg audiowide-regular">{data.price}</p>
                   </div>
                 </div>
               );
@@ -50,6 +53,7 @@ const Fleet = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

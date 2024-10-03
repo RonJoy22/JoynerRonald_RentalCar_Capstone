@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes as R } from 'react-router-dom'
-import {Fleet, Booking, Contact} from './index'
+import {Home, Fleet, Booking, Contact, Login, Signup} from './index.js'
 
 
 function Routes() {
@@ -11,6 +11,10 @@ function Routes() {
     <Route path="/fleet" element={<Fleet />} />
     <Route path="/booking" element={<Booking />} />
     <Route path="/contact" element={<Contact />} />
+    <Route path="/" element={<Home/>} /> 
+    <Route path="/login" element={<Login/>} />
+    <Route path="/signup" element={<Signup/>} />
+
    </R>
    </>
   )
