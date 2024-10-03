@@ -2,60 +2,72 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function Login({ handleLogin }) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const decryptPassword = async (encryptedPassword, key, iv) => {
-    const decoder = new TextDecoder();
-    const importedKey = await crypto.subtle.importKey(
-      "raw",
-      Uint8Array.from(atob(key), (c) => c.charCodeAt(0)),
-      { name: "AES-GCM", length: 256 },
-      false,
-      ["decrypt"]
-    );
-    const decryptedData = await crypto.subtle.decrypt(
-      {
-        name: "AES-GCM",
-        iv: Uint8Array.from(atob(iv), (c) => c.charCodeAt(0)),
-      },
-      importedKey,
-      Uint8Array.from(atob(encryptedPassword), (c) => c.charCodeAt(0))
-    );
-    return decoder.decode(decryptedData);
+  const validateForm = () => {
+    if (!email || !password) {
+      setError('All fields are required.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  const handleLogin = (user) => {
+    // Logic to handle user login (e.g., save user info to state or context)
+    console.log('User logged in:', user);
+  };
+
+  const login = async () => {
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        // other options like headers and body
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      handleLogin(data.user); // This should now work
+      navigate('/home'); // Redirect to home page on successful login
+    } catch (err) {
+      console.log(err);
+      setError('An error occurred. Please try again.');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    if (!validateForm()) return;
 
     try {
-      const storedUser = JSON.parse(localStorage.getItem("user"));
+      const response = await fetch(`http://localhost:8080/AscentRentals/Login/${email}`, { // Adjust this endpoint as necessary
+        method: 'POST',  // Use POST or GET as per your backend requirements
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-      if (!storedUser) {
-        setError("User not found");
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.message || 'Login failed.');
         return;
       }
 
-      const decryptedPassword = await decryptPassword(
-        storedUser.encryptedPassword,
-        storedUser.key,
-        storedUser.iv
-      );
-
-      if (storedUser.email === email && decryptedPassword === password) {
-        console.log("Login successful"); 
-        handleLogin();
-        navigate("/");
-      } else {
-        setError("Invalid email or password");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      setError("An error occurred during login");
+      const data = await response.json();
+      // Handle the successful login, e.g., save user info, call handleLogin, etc.
+      handleLogin(data.user); // Assuming the API returns user data
+      navigate('/'); // Redirect to home page on successful login
+    } catch (err) {
+      console.log(err);
+      setError('An error occurred. Please try again.');
     }
   };
 

@@ -33,7 +33,7 @@ public class DBCleanup {
             try (
                 Connection connection = dataSource.getConnection()){
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("DROP TABLE ID EXISTS Cars");
+                statement.executeUpdate("DROP TABLE IF EXISTS cars");
 
 
                 logger.info("All tables dropped successfully");

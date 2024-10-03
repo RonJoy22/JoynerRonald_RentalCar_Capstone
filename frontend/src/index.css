@@ -8,4 +8,102 @@
     font-weight: 400;
     font-style: normal;
   }
-  
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .text-lg {
+    font-size: 1rem; /* Font size for extra small devices */
+  }
+
+  .image-container {
+    width: 100%; /* Full width for image containers */
+  }
+
+  .button {
+    font-size: 0.875rem; /* Smaller button font size */
+    padding: 0.5rem 1rem; /* Adjusted button padding */
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 601px) and (max-width: 767px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .text-lg {
+    font-size: 1.125rem; /* Font size for small devices */
+  }
+
+  .image-container {
+    width: 50%; /* Half width for image containers */
+  }
+
+  .button {
+    font-size: 1rem; /* Button font size */
+    padding: 0.75rem 1.5rem; /* Button padding */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 720px; /* Same max width as small devices */
+  }
+
+  .text-lg {
+    font-size: 1.125rem; /* Font size for medium devices */
+  }
+
+  .image-container {
+    width: 40%; /* Width for image containers */
+  }
+
+  .button {
+    font-size: 1rem; /* Button font size */
+    padding: 0.75rem 1.5rem; /* Button padding */
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .text-lg {
+    font-size: 1.25rem; /* Font size for large devices */
+  }
+
+  .image-container {
+    width: 30%; /* Width for image containers */
+  }
+
+  .button {
+    font-size: 1rem; /* Button font size */
+    padding: 0.75rem 1.5rem; /* Button padding */
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1201px and up) */
+@media only screen and (min-width: 1201px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .text-lg {
+    font-size: 1.5rem; /* Font size for extra large devices */
+  }
+
+  .image-container {
+    width: 25%; /* Width for image containers */
+  }
+
+  .button {
+    font-size: 1.125rem; /* Larger button font size */
+    padding: 1rem 2rem; /* Increased button padding */
+  }
+} 

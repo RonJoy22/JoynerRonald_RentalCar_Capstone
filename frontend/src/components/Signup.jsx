@@ -3,22 +3,53 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const navigate = useNavigate()
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle sign up logic here
-    console.log('Sign up submitted', { name, email, password })
-    navigate("/")
-  }
+  const validateForm = () => {
+    if (!name || !email || !password) {
+      setError('All fields are required.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  const submitData = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    try {
+      const response = await fetch('http://localhost:8080/AscentRentals/SignUp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.message || 'Registration failed.');
+        return;
+      }
+
+      // Optionally, you can redirect to the login page on successful signup
+      navigate('/LogIn');
+    } catch (err) {
+      console.log(err);
+      setError('An error occurred. Please try again.');
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center audiowide-regular mb-8">Sign Up</h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+      <form className="max-w-md mx-auto" onSubmit={submitData}>
+  
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2">Name</label>
           <input

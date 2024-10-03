@@ -11,16 +11,18 @@ import lombok.*;
 public class Cars {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int year;
+    private Integer id;
+    private Integer year;
     private String name;
     private String description;
     private String price;
     private String image_Url;
 
     public Cars(){
-           }
-    public Cars(int id, int year, String name, String description, String price, String image_Url) {
+
+    }
+
+    public Cars(Integer id, Integer year, String name, String description, String price, String image_Url) {
         this.id = id;
         this.year = year;
         this.name = name;
