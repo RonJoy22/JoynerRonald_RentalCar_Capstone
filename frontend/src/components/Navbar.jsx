@@ -14,9 +14,10 @@ function Navbar() {
       <li><a href='/Fleet'>FLEET</a></li>
       <li><a href='/Booking'>BOOKING</a></li>
       <li><a href='/Contact'>CONTACT US</a></li>
+      <div className='flex flex-col items-center gap-3 right-0'>
       <li><a href='/Signup'>Sign Up</a></li>
       <li><a href='/Login'>Login</a></li>
-
+        </div>
       </ul>
         </div>
         </div>

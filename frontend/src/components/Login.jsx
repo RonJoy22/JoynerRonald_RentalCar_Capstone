@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from './Footer'
+import Sketch from '../carphotos/Sketch.jpg'
 
 
 function Login() {
@@ -18,7 +20,7 @@ function Login() {
   };
 
   const handleLogin = (user) => {
-    // Logic to handle user login (e.g., save user info to state or context)
+    
     console.log('User logged in:', user);
   };
 
@@ -26,7 +28,7 @@ function Login() {
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
-        // other options like headers and body
+        
       });
 
       if (!response.ok) {
@@ -34,8 +36,8 @@ function Login() {
       }
 
       const data = await response.json();
-      handleLogin(data.user); // This should now work
-      navigate('/home'); // Redirect to home page on successful login
+      handleLogin(data.user); 
+      navigate('/home'); 
     } catch (err) {
       console.log(err);
       setError('An error occurred. Please try again.');
@@ -48,7 +50,7 @@ function Login() {
 
     try {
       const response = await fetch(`http://localhost:8080/AscentRentals/Login/${email}`, { // Adjust this endpoint as necessary
-        method: 'POST',  // Use POST or GET as per your backend requirements
+        method: 'POST',  
         headers: {
           'Content-Type': 'application/json',
         },
@@ -62,9 +64,9 @@ function Login() {
       }
 
       const data = await response.json();
-      // Handle the successful login, e.g., save user info, call handleLogin, etc.
-      handleLogin(data.user); // Assuming the API returns user data
-      navigate('/'); // Redirect to home page on successful login
+      
+      handleLogin(data.user); 
+      navigate('/'); 
     } catch (err) {
       console.log(err);
       setError('An error occurred. Please try again.');
@@ -72,13 +74,20 @@ function Login() {
   };
 
   return (
-      
-      <div className=" z-10 w-full mx-auto max-w-md px-6 py-12 bg-white bg-opacity-80 rounded-lg ">
-        <h1 className="text-3xl font-bold text-center audiowide-regular text-gray-800 mb-8">Login</h1>
+      <>
+      <div style={{ 
+      backgroundImage: `url(${Sketch})`,
+      backgroundSize:'cover',
+      backgroundPosition: 'center',
+      height: '100%',
+      width: '100%'
+    }}>
+      <div className=" z-10 w-full mx-auto max-w-md px-6 py-12 bg-transparent h-screen bg-opacity-80 rounded-lg ">
+        <h1 className="text-3xl font-bold text-center audiowide-regular text-violet-800 mb-8">Login</h1>
         <form onSubmit={handleSubmit}>
           {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm text-center font-medium text-black mb-2">
               Email
             </label>
             <input
@@ -88,13 +97,13 @@ function Login() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500"
             />
           </div>
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-center text-black mb-2" 
             >
               Password
             </label>
@@ -105,7 +114,7 @@ function Login() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-green-500"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500"
             />
           </div>
           <div>
@@ -118,6 +127,9 @@ function Login() {
           </div>
         </form>
       </div>
+      <Footer/>
+      </div>
+      </>
   );
 }
 
