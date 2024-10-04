@@ -1,5 +1,5 @@
-Overview
-Welcome to th Ascent Rentals website! This application allows users to browse vehicles and book the vehicles they'd like to rent. Built with a modern tech stack, this platform provides an engaging user experience while maintaining a robust backend.
+
+Welcome to the Ascent Rentals website! This application allows users to browse vehicles and book the vehicles they'd like to rent. Built with a modern tech stack, this platform provides an engaging user experience while maintaining a robust backend.
 
 Technologies Used
 
@@ -15,8 +15,7 @@ MySQL: For data storage, we use MySQL, a robust relational database management s
 
 
 Features
-Toggle Theme: Dark/Light Mode
 Vehicle: Users can explore the luxury collection of vehicles for rent by day.
-Booking System: Users can place bids .
-Responsive Design: The application is fully responsive, providing an optimal viewing experience on desktops, tablets, and mobile devices.
+Booking System: Users can upload sensitive data and book vehicles and recieve a confirmation email.
+Login/Signup: Users can sign up and login to the site. Authentication and security implemented through CORS.
 
