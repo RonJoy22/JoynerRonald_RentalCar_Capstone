@@ -4,4 +4,7 @@ INSERT INTO cars(id, year, name, description, price, image_Url)VALUES
 (3, 2024, '2024 Bentley Bentayga', 'Bentayga', '$300/Day', 'https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197220/pngimg.com_-_bentley_PNG10_rxracq.png'),
 (4, 2024, '2024 Lexus RC 350', 'RC 350', '$300/Day', 'https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197220/pngimg.com_-_lexus_PNG12_heykqe.png'),
 (5, 2024, '2024 Porsche 911 GT3', '911 GT3', '$300/Day', 'https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197221/pngimg.com_-_porsche_PNG102846_dkvrci.png'),
-(6, 2024, '2024 Lamborghini Urus', 'Urus', '$300/Day', 'https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197220/pngimg.com_-_lamborghini_PNG102909_e1ovxq.png');
+(6, 2024, '2024 Lamborghini Urus', 'Urus', '$300/Day', 'https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197220/pngimg.com_-_lamborghini_PNG102909_e1ovxq.png'),
+(7, 2024, "2024 BMW X6", "BMW", "$300/Day", "https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197221/24XM_300_aza2qg.png"),
+(8, 2024, "2024 Audi RS8", "RS8", "$300/Day", "https://res.cloudinary.com/dxrwpoyrv/image/upload/v1727197220/pngimg.com_-_audi_PNG99485_qzhce7.png");
+
